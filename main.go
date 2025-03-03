@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"regexp"
 	"strconv"
@@ -11,7 +12,7 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Println("Использование: program input.txt output.txt")
+		fmt.Println("Программа принимает два аргумента:  input.txt output.txt")
 		return
 	}
 
@@ -19,7 +20,7 @@ func main() {
 	outputFile := os.Args[2]
 
 	// Читаем содержимое входного файла
-	content, err := os.ReadFile(inputFile)
+	content, err := ioutil.ReadFile(inputFile)
 	if err != nil {
 		fmt.Printf("Ошибка при чтении файла: %v\n", err)
 		return
